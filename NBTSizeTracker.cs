@@ -1,8 +1,8 @@
 ﻿namespace GeoForge.NBT
 {
-    public class NBTSizeTracker
+    public class NBTSizeTracker(long max)
     {
-        public NBTSizeTracker Infinite = new InfiniteSizeTracker();
+        public static readonly NBTSizeTracker Infinite = new InfiniteSizeTracker();
 
         private class InfiniteSizeTracker : NBTSizeTracker
         {
@@ -15,14 +15,8 @@
             }
         }
 
-        private readonly long _max;
-        private long _read;
-
-        public NBTSizeTracker(long max)
-        {
-            _max = max;
-            _read = 0;
-        }
+        private readonly long _max = max;
+        private long _read = 0;
 
         public virtual void Read(long bits)
         {
