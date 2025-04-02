@@ -9,10 +9,15 @@
     <Title>GeoForge.NBT</Title>
     <Description>Minecraft's NBT system ported to c#.</Description>
     <PackageProjectUrl>https://github.com/Fazin85/GeoForge.NBT</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
