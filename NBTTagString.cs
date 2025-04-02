@@ -65,7 +65,7 @@ namespace GeoForge.NBT
             return base.GetHashCode() ^ _data.GetHashCode();
         }
 
-        public string GetString()
+        public override string GetString()
         {
             return _data;
         }

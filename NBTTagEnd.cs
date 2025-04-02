@@ -1,6 +1,4 @@
-﻿using GeoForge.Nbt;
-
-namespace GeoForge.NBT
+﻿namespace GeoForge.NBT
 {
     public class NBTTagEnd : NBTBase
     {
