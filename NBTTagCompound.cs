@@ -71,108 +71,67 @@ namespace GeoForge.NBT
             _tagMap[key] = new NBTTagByte(value);
         }
 
-        /**
-         * Stores a new NBTTagShort with the given short value into the map with the given string key.
-         */
         public void SetShort(string key, short value)
         {
             _tagMap[key] = new NBTTagShort(value);
         }
 
-        /**
-         * Stores a new NBTTagInt with the given integer value into the map with the given string key.
-         */
         public void SetInteger(string key, int value)
         {
             _tagMap[key] = new NBTTagInt(value);
         }
 
-        /**
-         * Stores a new NBTTagLong with the given long value into the map with the given string key.
-         */
         public void SetLong(string key, long value)
         {
             _tagMap[key] = new NBTTagLong(value);
         }
 
-        /**
-         * Stores a new NBTTagFloat with the given float value into the map with the given string key.
-         */
         public void SetFloat(string key, float value)
         {
             _tagMap[key] = new NBTTagFloat(value);
         }
 
-        /**
-         * Stores a new NBTTagDouble with the given double value into the map with the given string key.
-         */
         public void SetDouble(string key, double value)
         {
             _tagMap[key] = new NBTTagDouble(value);
         }
 
-        /**
-         * Stores a new NBTTagString with the given string value into the map with the given string key.
-         */
         public void SetString(string key, string value)
         {
             _tagMap[key] = new NBTTagString(value);
         }
 
-        /**
-         * Stores a new NBTTagByteArray with the given array as data into the map with the given string key.
-         */
         public void SetByteArray(string key, byte[] value)
         {
             _tagMap[key] = new NBTTagByteArray(value);
         }
 
-        /**
-         * Stores a new NBTTagIntArray with the given array as data into the map with the given string key.
-         */
         public void SetIntArray(string key, int[] value)
         {
             _tagMap[key] = new NBTTagIntArray(value);
         }
 
-        /**
-         * Stores the given boolean value as a NBTTagByte, storing 1 for true and 0 for false, using the given string key.
-         */
         public void SetBoolean(string key, bool value)
         {
             SetByte(key, (byte)(value ? 1 : 0));
         }
 
-        /**
-         * gets a generic tag with the specified name
-         */
         public NBTBase GetTag(string key)
         {
             return _tagMap[key];
         }
 
-        /**
-         * Gets the ID byte for the given tag key
-         */
         public byte GetTagId(string key)
         {
             _tagMap.TryGetValue(key, out NBTBase? nbtbase);
             return nbtbase == null ? (byte)0 : nbtbase.GetID();
         }
 
-        /**
-         * Returns whether the given string has been previously stored as a key in the map.
-         */
         public bool HasKey(string key)
         {
             return _tagMap.ContainsKey(key);
         }
 
-        /**
-         * Returns whether the given string has been previously stored as a key in this tag compound as a particular type,
-         * denoted by a parameter in the form of an ordinal. If the provided ordinal is 99, this method will match tag types
-         * representing numbers.
-         */
         public bool HasKey(string key, int type)
         {
             int i = GetTagId(key);
@@ -191,9 +150,6 @@ namespace GeoForge.NBT
             }
         }
 
-        /**
-         * Retrieves a byte value using the specified key, or 0 if no such key was stored.
-         */
         public byte GetByte(string key)
         {
             try
@@ -210,9 +166,6 @@ namespace GeoForge.NBT
             return 0;
         }
 
-        /**
-         * Retrieves a short value using the specified key, or 0 if no such key was stored.
-         */
         public short GetShort(string key)
         {
             try
@@ -229,9 +182,6 @@ namespace GeoForge.NBT
             return 0;
         }
 
-        /**
-         * Retrieves an integer value using the specified key, or 0 if no such key was stored.
-         */
         public int GetInteger(string key)
         {
             try
@@ -248,9 +198,6 @@ namespace GeoForge.NBT
             return 0;
         }
 
-        /**
-         * Retrieves a long value using the specified key, or 0 if no such key was stored.
-         */
         public long GetLong(string key)
         {
             try
@@ -267,9 +214,6 @@ namespace GeoForge.NBT
             return 0L;
         }
 
-        /**
-         * Retrieves a float value using the specified key, or 0 if no such key was stored.
-         */
         public float GetFloat(string key)
         {
             try
@@ -286,9 +230,6 @@ namespace GeoForge.NBT
             return 0.0F;
         }
 
-        /**
-         * Retrieves a double value using the specified key, or 0 if no such key was stored.
-         */
         public double GetDouble(string key)
         {
             try
@@ -305,9 +246,6 @@ namespace GeoForge.NBT
             return 0.0D;
         }
 
-        /**
-         * Retrieves a string value using the specified key, or an empty string if no such key was stored.
-         */
         public string GetString(string key)
         {
             if (HasKey(key, 8))
@@ -318,9 +256,6 @@ namespace GeoForge.NBT
             return "";
         }
 
-        /**
-         * Retrieves a byte array using the specified key, or a zero-length array if no such key was stored.
-         */
         public byte[] GetByteArray(string key)
         {
             try
@@ -339,9 +274,6 @@ namespace GeoForge.NBT
             return [];
         }
 
-        /**
-         * Retrieves an int array using the specified key, or a zero-length array if no such key was stored.
-         */
         public int[] GetIntArray(string key)
         {
             try
@@ -360,10 +292,6 @@ namespace GeoForge.NBT
             return [];
         }
 
-        /**
-         * Retrieves a NBTTagCompound subtag matching the specified key, or a new empty NBTTagCompound if no such key was
-         * stored.
-         */
         public NBTTagCompound GetCompoundTag(string key)
         {
             try
@@ -382,9 +310,6 @@ namespace GeoForge.NBT
             return new NBTTagCompound();
         }
 
-        /**
-         * Gets the NBTTagList object with the given name.
-         */
         public NBTTagList GetTagList(string key, int type)
         {
             try
@@ -410,18 +335,11 @@ namespace GeoForge.NBT
             return new NBTTagList();
         }
 
-        /**
-         * Retrieves a boolean value using the specified key, or false if no such key was stored. This uses the getByte
-         * method.
-         */
         public bool GetBoolean(string key)
         {
             return GetByte(key) != 0;
         }
 
-        /**
-         * Remove the specified tag.
-         */
         public void RemoveTag(string key)
         {
             _tagMap.Remove(key);
